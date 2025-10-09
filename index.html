@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal Educativo Institución Educativa Técnica Francisco de Paula Santander - Educación de calidad, valores y excelencia académica">
+    <meta name="keywords" content="colegio, educación, Francisco de Paula Santander, matrícula, institución educativa">
+    <title>I.E.T. Francisco de Paula Santander | Portal Educativo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e3c72;
+            --secondary-color: #2a5298;
+            --accent-color: #d4af37;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --bg-light: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            font-size: 0.85rem;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .img {
+            width: 50px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            margin-top: 140px;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-1 {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        .slide-2 {
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+        }
+
+        .slide-3 {
+            background: linear-gradient(135deg, #1a2a4e 0%, #2a5298 100%);
+        }
+
+        .slide-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .slide-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: var(--accent-color);
+        }
+
+        /* Section */
+        .section {
+            display: none;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-box {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .about-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .about-box li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .about-box li:before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Form */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Documents */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .document-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .document-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .document-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--primary-color);
+        }
+
+        .document-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .document-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info-box {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .contact-item-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background: var(--bg-light);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--text-light);
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 140px;
+                flex-direction: column;
+                background: var(--primary-color);
+                width: 100%;
+                padding: 2rem;
+                transition: left 0.3s;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .slide-content h2 {
+                font-size: 2rem;
+            }
+
+            .slide-content p {
+                font-size: 1rem;
+            }
+
+            .about-grid,
+            .contact-grid,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span>(+57) 300 481 9336</span>
+                </div>
+                <div class="contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>info@iefpsantander.edu.co</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="white" stroke-width="2" fill="none"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2"></line></svg></a>
+                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/escudo.png" alt="" class="img">
+                <div class="logo-text">
+                    <h1>I.E.T. Francisco de Paula Santander</h1>
+                    <p>Educación Técnica de Calidad</p>
+                </div>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link active" data-section="inicio">Inicio</a></li>
+                <li><a class="nav-link" data-section="nosotros">Nosotros</a></li>
+                <li><a class="nav-link" data-section="noticias">Noticias</a></li>
+                <li><a class="nav-link" data-section="matricula">Matrícula</a></li>
+                <li><a class="nav-link" data-section="documentos">Documentos</a></li>
+                <li><a class="nav-link" data-section="contacto">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Slider -->
+    <div class="hero-slider">
+        <div class="slide slide-1 active">
+            <div class="slide-content">
+                <h2>Educación de Calidad para el Futuro</h2>
+                <p>Formando líderes con valores y excelencia académica</p>
+                <button class="btn-primary" onclick="navigateToSection('matricula')">Matricúlate Ahora</button>
+            </div>
+        </div>
+        <div class="slide slide-2">
+            <div class="slide-content">
+                <h2>Formación Técnica Especializada</h2>
+                <p>Preparamos estudiantes para el mundo laboral y universitario</p>
+                <button class="btn-primary" onclick="navigateToSection('nosotros')">Conoce Más</button>
+            </div>
+        </div>
+        <div class="slide slide-3">
+            <div class="slide-content">
+                <h2>Compromiso con la Excelencia</h2>
+                <p>Más de 50 años educando con pasión y dedicación</p>
+                <button class="btn-primary" onclick="navigateToSection('contacto')">Contáctanos</button>
+            </div>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active" onclick="changeSlide(0)"></span>
+            <span class="dot" onclick="changeSlide(1)"></span>
+            <span class="dot" onclick="changeSlide(2)"></span>
+        </div>
+    </div>
+
+    <!-- Inicio Section -->
+    <section id="inicio" class="section active">
+        <h2 class="section-title">Bienvenidos a Nuestra Institución</h2>
+        <p class="section-subtitle">Comprometidos con la formación integral de nuestros estudiantes</p>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                </div>
+                <h3>Excelencia Académica</h3>
+                <p>Programas educativos de alta calidad que preparan a nuestros estudiantes para los desafíos del futuro, con énfasis en formación técnica y desarrollo de competencias.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3>Valores y Formación Integral</h3>
+                <p>Fortalecemos el carácter de nuestros estudiantes a través de valores como responsabilidad, respeto, honestidad y solidaridad, formando ciudadanos íntegros.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <h3>Infraestructura Moderna</h3>
+                <p>Contamos con instalaciones equipadas con tecnología de punta, laboratorios especializados, biblioteca digital y espacios deportivos para el desarrollo integral.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="section">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <p class="section-subtitle">Conoce nuestra historia, misión y visión institucional</p>
+        
+        <div class="about-grid">
+            <div class="about-box">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    Nuestra Historia
+                </h3>
+                <p>La Institución Educativa Técnica Francisco de Paula Santander fue fundada en 1972 con el propósito de brindar educación técnica de calidad a la comunidad. A lo largo de más de 50 años, hemos formado miles de estudiantes que hoy son profesionales exitosos y ciudadanos comprometidos con el desarrollo de nuestra región.</p>
+                <p style="margin-top: 1rem;">Nuestra institución lleva con orgullo el nombre del General Francisco de Paula Santander, el "Hombre de las Leyes", quien dedicó su vida a la educación y formación de la juventud colombiana.</p>
+            </div>
+            
+            <div class="about-box">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                    Misión
+                </h3>
+                <p>Formar integralmente a niños, niñas y jóvenes en educación preescolar, básica y media técnica, desarrollando competencias académicas, técnicas y humanas que les permitan ser ciudadanos responsables, competentes y comprometidos con el desarrollo sostenible de su entorno.</p>
+            </div>
+            
+            <div class="about-box">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    Visión
+                </h3>
+                <p>Para el año 2030, ser reconocidos como una institución educativa líder en formación técnica, que garantiza la calidad educativa, promueve la innovación pedagógica y forma estudiantes competentes para enfrentar los retos del siglo XXI.</p>
+            </div>
+            
+            <div class="about-box">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Objetivos Institucionales
+                </h3>
+                <ul>
+                    <li>Garantizar educación de calidad y formación integral</li>
+                    <li>Fortalecer la formación técnica especializada</li>
+                    <li>Promover valores y competencias ciudadanas</li>
+                    <li>Implementar metodologías innovadoras de enseñanza</li>
+                    <li>Fomentar el desarrollo del pensamiento crítico</li>
+                </ul>
+            </div>
+            
+            <div class="about-box">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    Programas Técnicos
+                </h3>
+                <ul>
+                    <li>Técnico en Auxiliar Administrativo</li>
+                    <li>Técnico en Mantenimiento de Equipos de Cómputo</li>
+                    <li>Técnico en Electricidad y Domiciliaria</li>
+                    <li>Técnico en Programación de Software</li>
+                    <li>Técnico en Redes y Datos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Noticias Section -->
+    <section id="noticias" class="section">
+        <h2 class="section-title">Noticias y Eventos</h2>
+        <p class="section-subtitle">Mantente informado sobre las últimas novedades institucionales</p>
+        
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image">📚</div>
+                <div class="news-content">
+                    <div class="news-date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        15 de Septiembre, 2025
+                    </div>
+                    <h3>Inicio del Proceso de Matrículas 2026</h3>
+                    <p>Se informa a la comunidad educativa que el proceso de matrículas para el año lectivo 2026 iniciará el próximo 1 de octubre. Los padres pueden realizar el proceso en línea a través de nuestro portal web.</p>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">🏆</div>
+                <div class="news-content">
+                    <div class="news-date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        8 de Septiembre, 2025
+                    </div>
+                    <h3>Estudiantes Destacados en Olimpiadas de Matemáticas</h3>
+                    <p>Felicitamos a nuestros estudiantes por su destacada participación en las Olimpiadas Regionales de Matemáticas, obteniendo el primer lugar en la categoría secundaria.</p>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">🎓</div>
+                <div class="news-content">
+                    <div class="news-date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        25 de Agosto, 2025
+                    </div>
+                    <h3>Ceremonia de Graduación Promoción 2025</h3>
+                    <p>Con gran orgullo celebramos la graduación de 120 bachilleres técnicos de la promoción 2025. ¡Éxitos en su camino profesional!</p>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">💻</div>
+                <div class="news-content">
+                    <div class="news-date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        10 de Agosto, 2025
+                    </div>
+                    <h3>Modernización de Laboratorios de Informática</h3>
+                    <p>Hemos renovado completamente nuestros laboratorios de informática con equipos de última generación para mejorar la experiencia de aprendizaje de nuestros estudiantes.</p>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">🌱</div>
+                <div class="news-content">
+                    <div class="news-date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        1 de Agosto, 2025
+                    </div>
+                    <h3>Proyecto Ambiental Escolar</h3>
+                    <p>Lanzamos nuestro proyecto de sostenibilidad ambiental "Colegio Verde", enfocado en reciclaje, ahorro de energía y conciencia ecológica.</p>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">⚽</div>
+                <div class="news-content">
+                    <div class="news-date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        20 de Julio, 2025
+                    </div>
+                    <h3>Juegos Intercolegiados 2025</h3>
+                    <p>Nuestros equipos deportivos participarán en los Juegos Intercolegiados Municipales. ¡Todo nuestro apoyo a los deportistas!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matrícula Section -->
+    <section id="matricula" class="section">
+        <h2 class="section-title">Matrícula en Línea</h2>
+        <p class="section-subtitle">Completa el formulario para iniciar el proceso de matrícula</p>
+        
+        <div class="form-container">
+            <div class="success-message" id="successMessage">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 10px;">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <strong>¡Formulario enviado exitosamente!</strong> Nos pondremos en contacto contigo pronto.
+            </div>
+            
+            <form id="matriculaForm">
+                <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Información del Estudiante</h3>
+                
+                <div class="form-group">
+                    <label for="nombreEstudiante">Nombre Completo del Estudiante *</label>
+                    <input type="text" id="nombreEstudiante" name="nombreEstudiante" required>
+                    <span class="error" id="errorNombreEstudiante"></span>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tipoDocumento">Tipo de Documento *</label>
+                        <select id="tipoDocumento" name="tipoDocumento" required>
+                            <option value="TI">Tarjeta de Identidad</option>
+                            <option value="RC">Registro Civil</option>
+                            <option value="CC">Cédula de Ciudadanía</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="numeroDocumento">Número de Documento *</label>
+                        <input type="text" id="numeroDocumento" name="numeroDocumento" required>
+                        <span class="error" id="errorNumeroDocumento"></span>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fechaNacimiento">Fecha de Nacimiento *</label>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                        <span class="error" id="errorFechaNacimiento"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grado">Grado a Cursar *</label>
+                        <select id="grado" name="grado" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="Preescolar">Preescolar</option>
+                            <option value="1">Primero</option>
+                            <option value="2">Segundo</option>
+                            <option value="3">Tercero</option>
+                            <option value="4">Cuarto</option>
+                            <option value="5">Quinto</option>
+                            <option value="6">Sexto</option>
+                            <option value="7">Séptimo</option>
+                            <option value="8">Octavo</option>
+                            <option value="9">Noveno</option>
+                            <option value="10">Décimo</option>
+                            <option value="11">Once</option>
+                        </select>
+                        <span class="error" id="errorGrado"></span>
+                    </div>
+                </div>
+                
+                <h3 style="color: var(--primary-color); margin: 2rem 0 1.5rem;">Información del Acudiente</h3>
+                
+                <div class="form-group">
+                    <label for="nombreAcudiente">Nombre Completo del Acudiente *</label>
+                    <input type="text" id="nombreAcudiente" name="nombreAcudiente" required>
+                    <span class="error" id="errorNombreAcudiente"></span>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefono">Teléfono de Contacto *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                        <span class="error" id="errorTelefono"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error" id="errorEmail"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="direccion">Dirección de Residencia *</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                    <span class="error" id="errorDireccion"></span>
+                </div>
+                
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Enviar Solicitud de Matrícula</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Documentos Section -->
+    <section id="documentos" class="section">
+        <h2 class="section-title">Reglamentos y Documentos</h2>
+        <p class="section-subtitle">Accede a la documentación institucional</p>
+        
+        <div class="documents-grid">
+            <div class="document-card">
+                <div class="document-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <h4>Manual de Convivencia</h4>
+                <p>Normas y reglamentos institucionales</p>
+            </div>
+            
+            <div class="document-card">
+                <div class="document-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                </div>
+                <h4>PEI - Proyecto Educativo</h4>
+                <p>Proyecto Educativo Institucional</p>
+            </div>
+            
+            <div class="document-card">
+                <div class="document-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                </div>
+                <h4>Reglamento Académico</h4>
+                <p>Sistema de evaluación y promoción</p>
+            </div>
+            
+            <div class="document-card">
+                <div class="document-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                </div>
+                <h4>Calendario Académico 2025</h4>
+                <p>Cronograma de actividades del año</p>
+            </div>
+            
+            <div class="document-card">
+                <div class="document-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                </div>
+                <h4>Requisitos de Matrícula</h4>
+                <p>Documentos necesarios para matricularse</p>
+            </div>
+            
+            <div class="document-card">
+                <div class="document-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                </div>
+                <h4>Programas Técnicos</h4>
+                <p>Información de especialidades técnicas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="section">
+        <h2 class="section-title">Contáctanos</h2>
+        <p class="section-subtitle">Estamos aquí para atenderte</p>
+        
+        <div class="contact-grid">
+            <div class="contact-info-box">
+                <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Información de Contacto</h3>
+                
+                <div class="contact-item-detail">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Dirección</h4>
+                        <p>Carrera 21 #25-49, Barrio El Cortijo<br>Soledad, Atlántico, Colombia</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item-detail">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Teléfono</h4>
+                        <p>(+57) 300 481 9336<br>(+57) 5 369 8745</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item-detail">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Email</h4>
+                        <p>info@iefpsantander.edu.co<br>secretaria@iefpsantander.edu.co</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item-detail">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Horario de Atención</h4>
+                        <p>Lunes a Viernes: 7:00 AM - 4:00 PM<br>Sábados: 8:00 AM - 12:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactNombre">Nombre Completo *</label>
+                        <input type="text" id="contactNombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactEmail">Correo Electrónico *</label>
+                        <input type="email" id="contactEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactAsunto">Asunto *</label>
+                        <input type="text" id="contactAsunto" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactMensaje">Mensaje *</label>
+                        <textarea id="contactMensaje" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" style="width: 100%;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <!-- <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <p style="margin-top: 1rem;">Ubicación en Google Maps</p> -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15670.2113761386!2d-74.76881695000002!3d10.92154815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef5cd7a597df579%3A0x29d5c18bf8afdfdc!2sInstituci%C3%B3n%20Educativa%20Francisco%20de%20Paula%20Santander!5e0!3m2!1ses-419!2sco!4v1759973050250!5m2!1ses-419!2sco" width="1200" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>I.E.T. Francisco de Paula Santander</h3>
+                <p>Institución Educativa comprometida con la formación integral y la excelencia académica.</p>
+                <div style="margin-top: 1rem;">
+                    <strong>Síguenos:</strong>
+                    <div class="social-links" style="margin-top: 0.5rem;">
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="white" stroke-width="2" fill="none"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2"></line></svg></a>
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a class="nav-link" data-section="inicio">Inicio</a></li>
+                    <li><a class="nav-link" data-section="nosotros">Nosotros</a></li>
+                    <li><a class="nav-link" data-section="noticias">Noticias</a></li>
+                    <li><a class="nav-link" data-section="matricula">Matrícula</a></li>
+                    <li><a class="nav-link" data-section="contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Programas Técnicos</h3>
+                <ul>
+                    <li>Auxiliar Administrativo</li>
+                    <li>Mantenimiento de Equipos de Cómputo</li>
+                    <li>Electricidad y Domiciliaria</li>
+                    <li>Programación de Software</li>
+                    <li>Redes y Datos</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📍 Carrera 21 #25-49, Soledad</li>
+                    <li>📞 (+57) 300 481 9336</li>
+                    <li>✉️ info@iefpsantander.edu.co</li>
+                    <li>🕐 Lun - Vie: 6:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 I.E.T. Francisco de Paula Santander. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Desarrollado con ❤️ para la educación | Soledad, Colombia</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        function navigateToSection(sectionId) {
+            sections.forEach(section => section.classList.remove('active'));
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelector(`[data-section="${sectionId}"]`).classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        }
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('data-section');
+                navigateToSection(sectionId);
+            });
+        });
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Hero Slider
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+        
+        function changeSlide(index) {
+            currentSlideIndex = index;
+            showSlide(currentSlideIndex);
+        }
+        
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+        
+        setInterval(nextSlide, 5000);
+        
+        // Form Validation - Matrícula
+        const matriculaForm = document.getElementById('matriculaForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        matriculaForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            let isValid = true;
+            const errors = {};
+            
+            // Clear previous errors
+            document.querySelectorAll('.error').forEach(error => error.textContent = '');
+            
+            // Validate nombre estudiante
+            const nombreEstudiante = document.getElementById('nombreEstudiante').value.trim();
+            if (nombreEstudiante.length < 3) {
+                errors.nombreEstudiante = 'El nombre debe tener al menos 3 caracteres';
+                isValid = false;
+            }
+            
+            // Validate número documento
+            const numeroDocumento = document.getElementById('numeroDocumento').value.trim();
+            if (!/^\d{6,11}$/.test(numeroDocumento)) {
+                errors.numeroDocumento = 'Número de documento inválido';
+                isValid = false;
+            }
+            
+            // Validate fecha nacimiento
+            const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            if (!fechaNacimiento) {
+                errors.fechaNacimiento = 'La fecha de nacimiento es requerida';
+                isValid = false;
+            }
+            
+            // Validate grado
+            const grado = document.getElementById('grado').value;
+            if (!grado) {
+                errors.grado = 'Debe seleccionar un grado';
+                isValid = false;
+            }
+            
+            // Validate nombre acudiente
+            const nombreAcudiente = document.getElementById('nombreAcudiente').value.trim();
+            if (nombreAcudiente.length < 3) {
+                errors.nombreAcudiente = 'El nombre del acudiente es requerido';
+                isValid = false;
+            }
+            
+            // Validate teléfono
+            const telefono = document.getElementById('telefono').value.trim();
+            if (!/^\d{7,10}$/.test(telefono)) {
+                errors.telefono = 'Teléfono inválido (7-10 dígitos)';
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errors.email = 'Email inválido';
+                isValid = false;
+            }
+            
+            // Validate dirección
+            const direccion = document.getElementById('direccion').value.trim();
+            if (direccion.length < 5) {
+                errors.direccion = 'La dirección debe tener al menos 5 caracteres';
+                isValid = false;
+            }
+            
+            // Display errors
+            for (let field in errors) {
+                const errorElement = document.getElementById(`error${field.charAt(0).toUpperCase() + field.slice(1)}`);
+                if (errorElement) {
+                    errorElement.textContent = errors[field];
+                }
+            }
+            
+            // If valid, show success message
+            if (isValid) {
+                successMessage.classList.add('show');
+                matriculaForm.reset();
+                
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+        
+        // Contact Form
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            contactForm.reset();
+        });
+        
+        // Document cards click effect
+        const documentCards = document.querySelectorAll('.document-card');
+        
+        documentCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('h4').textContent;
+                alert(`Descargando: ${title}\n\nEste es un demo. En producción, aquí se descargaría el documento real.`);
+            });
+        });
+        
+        // Smooth scroll for buttons
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll (simple fade-in)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe cards
+        document.querySelectorAll('.card, .news-card, .document-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
