@@ -167,6 +167,20 @@
             justify-content: center;
             text-align: center;
             color: var(--text-light);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
 
         .slide.active {
@@ -174,21 +188,28 @@
         }
 
         .slide-1 {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            /* Agrega aquí tu imagen: background-image: url('ruta-de-tu-imagen-1.jpg'); */
+            background-image: url('inicio2.jpeg');
         }
 
         .slide-2 {
-            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            /* Agrega aquí tu imagen: background-image: url('ruta-de-tu-imagen-2.jpg'); */
+        background-image: url('inicio3.jpg');
+
         }
 
         .slide-3 {
-            background: linear-gradient(135deg, #1a2a4e 0%, #2a5298 100%);
+            /* Agrega aquí tu imagen: background-image: url('ruta-de-tu-imagen-3.jpg'); */
+            background-image: url('colegiofrente.jpg');
+            
         }
 
         .slide-content {
             max-width: 800px;
             padding: 2rem;
             animation: slideUp 1s ease-out;
+            position: relative;
+            z-index: 2;
         }
 
         @keyframes slideUp {
@@ -400,6 +421,9 @@
         .news-image {
             height: 200px;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -722,6 +746,7 @@
                 <li><a class="nav-link" data-section="noticias">Noticias</a></li>
                 <li><a class="nav-link" data-section="matricula">Matrícula</a></li>
                 <li><a class="nav-link" data-section="documentos">Documentos</a></li>
+                <li><a class="nav-link" data-section="mediaTecnica">Media Técnica</a></li>
                 <li><a class="nav-link" data-section="contacto">Contacto</a></li>
             </ul>
             <button class="menu-toggle" id="menuToggle">
@@ -798,8 +823,8 @@
                         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                     </svg>
                 </div>
-                <h3>Infraestructura Moderna</h3>
-                <p>Contamos con instalaciones equipadas con tecnología de punta, laboratorios especializados, biblioteca digital y espacios deportivos para el desarrollo integral.</p>
+                <h3>Espacios Acogedores y Funcionales</h3>
+                <p>Contamos con aulas cómodas, bien iluminadas y equipadas con los recursos necesarios para el aprendizaje. Nuestros espacios están pensados para el desarrollo integral de los estudiantes, promoviendo el trabajo en equipo y el crecimiento personal.</p>
             </div>
         </div>
     </section>
@@ -818,7 +843,7 @@
                     </svg>
                     Nuestra Historia
                 </h3>
-                <p>La Institución Educativa Técnica Francisco de Paula Santander fue fundada en 1972 con el propósito de brindar educación técnica de calidad a la comunidad. A lo largo de más de 50 años, hemos formado miles de estudiantes que hoy son profesionales exitosos y ciudadanos comprometidos con el desarrollo de nuestra región.</p>
+                <p>La Institución Educativa Técnica Francisco de Paula Santander fue fundada en 1934 con el propósito de brindar educación técnica de calidad a la comunidad. A lo largo de más de 91 años, hemos formado miles de estudiantes que hoy son profesionales exitosos y ciudadanos comprometidos con el desarrollo de nuestra región.</p>
                 <p style="margin-top: 1rem;">Nuestra institución lleva con orgullo el nombre del General Francisco de Paula Santander, el "Hombre de las Leyes", quien dedicó su vida a la educación y formación de la juventud colombiana.</p>
             </div>
             
@@ -829,7 +854,7 @@
                     </svg>
                     Misión
                 </h3>
-                <p>Formar integralmente a niños, niñas y jóvenes en educación preescolar, básica y media técnica, desarrollando competencias académicas, técnicas y humanas que les permitan ser ciudadanos responsables, competentes y comprometidos con el desarrollo sostenible de su entorno.</p>
+                <p>La Institución Educativa Técnica Francisco de Paula Santander forma ciudadanos integros, incluyentes, críticos, reflexivos, con habilidades socioemocionales y conscientes de su realidad, con principios y valores que les permitan vivir en comunidad, ser lideres generadores de cambio, con competencias laborales y ciudadanas acordes con las necesidades del entorno, brindándoles la formación académica, técnica, artística, cultural, deportiva y recreativa, fundamentales para acceder a la educación superior, contribuyendo así al mejoramiento de su calidad de vida.</p>
             </div>
             
             <div class="about-box">
@@ -840,7 +865,7 @@
                     </svg>
                     Visión
                 </h3>
-                <p>Para el año 2030, ser reconocidos como una institución educativa líder en formación técnica, que garantiza la calidad educativa, promueve la innovación pedagógica y forma estudiantes competentes para enfrentar los retos del siglo XXI.</p>
+                <p>En el 2027 nuestra Institución se reconocerá en el Municipio de Soledad por sus resultados en el desarrollo de las potencialidades del ser humano, a través de procesos pedagógicos de calidad, capaces de asumir y afrontar los retos que ofrece la sociedad en la cual se desenvolverá, fundamentados por principios y valores institucionales y familiares que les permita interactuar con ella, contribuyendo significativamente al mejoramiento de su calidad de vida. Nuestros jóvenes egresados serán competentes para el ingreso a la educación superior y al sector productivo.</p>
             </div>
             
             <div class="about-box">
@@ -851,11 +876,10 @@
                     Objetivos Institucionales
                 </h3>
                 <ul>
-                    <li>Garantizar educación de calidad y formación integral</li>
-                    <li>Fortalecer la formación técnica especializada</li>
-                    <li>Promover valores y competencias ciudadanas</li>
-                    <li>Implementar metodologías innovadoras de enseñanza</li>
-                    <li>Fomentar el desarrollo del pensamiento crítico</li>
+                    <li>Educar para la vida y para la paz con criterio humano, contribuyendo con el crecimiento, formación y desarrollo integral de los estudiantes.</li>
+                    <li>Servir de instancia socializadora de la problemática social, nacional e internacional para entender la actualidad.</li>
+                    <li>Preparar integralmente a los jóvenes en sus condiciones socioeconómicas y culturales para su desarrollo personal, profesional y laboral.</li>
+ 
                 </ul>
             </div>
             
@@ -885,6 +909,7 @@
         
         <div class="news-grid">
             <div class="news-card">
+                <!-- Agrega aquí tu imagen: <div class="news-image" style="background-image: url('ruta-de-tu-imagen.jpg');"></div> -->
                 <div class="news-image">📚</div>
                 <div class="news-content">
                     <div class="news-date">
@@ -902,7 +927,7 @@
             </div>
             
             <div class="news-card">
-                <div class="news-image">🏆</div>
+            <div class="news-image" style="background-image: url('matematicas.jpg');"></div>
                 <div class="news-content">
                     <div class="news-date">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -919,6 +944,7 @@
             </div>
             
             <div class="news-card">
+                <!-- Agrega aquí tu imagen: <div class="news-image" style="background-image: url('ruta-de-tu-imagen.jpg');"></div> -->
                 <div class="news-image">🎓</div>
                 <div class="news-content">
                     <div class="news-date">
@@ -936,7 +962,7 @@
             </div>
             
             <div class="news-card">
-                <div class="news-image">💻</div>
+            <div class="news-image" style="background-image: url('laboratorio.jpg');"></div>
                 <div class="news-content">
                     <div class="news-date">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -953,6 +979,7 @@
             </div>
             
             <div class="news-card">
+                <!-- Agrega aquí tu imagen: <div class="news-image" style="background-image: url('ruta-de-tu-imagen.jpg');"></div> -->
                 <div class="news-image">🌱</div>
                 <div class="news-content">
                     <div class="news-date">
@@ -970,7 +997,7 @@
             </div>
             
             <div class="news-card">
-                <div class="news-image">⚽</div>
+            <div class="news-image" style="background-image: url('voleibol.jpg');"></div>
                 <div class="news-content">
                     <div class="news-date">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -981,7 +1008,7 @@
                         </svg>
                         20 de Julio, 2025
                     </div>
-                    <h3>Juegos Intercolegiados 2025</h3>
+                    <h3>Juegos Intercursos 2025</h3>
                     <p>Nuestros equipos deportivos participarán en los Juegos Intercolegiados Municipales. ¡Todo nuestro apoyo a los deportistas!</p>
                 </div>
             </div>
@@ -1086,6 +1113,61 @@
                 
                 <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Enviar Solicitud de Matrícula</button>
             </form>
+        </div>
+    </section>
+
+    <!-- Media Técnica Section -->
+    <section id="mediaTecnica" class="section">
+        <h2 class="section-title">Media Técnica</h2>
+        <p class="section-subtitle">Especialidades técnicas que ofrecemos en los grados 10° y 11°</p>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">💼</div>
+                <h3>Auxiliar Administrativo</h3>
+                <p><strong>Duración:</strong> 2 años (10° y 11°)</p>
+                <p><strong>Descripción:</strong> Formación integral en procesos administrativos, gestión documental, atención al cliente y manejo de herramientas ofimáticas. Los estudiantes desarrollan competencias en organización empresarial y gestión de información.</p>
+                <p><strong>Campo laboral:</strong> Empresas públicas y privadas, instituciones educativas, entidades gubernamentales.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🖥️</div>
+                <h3>Mantenimiento de Equipos de Cómputo</h3>
+                <p><strong>Duración:</strong> 2 años (10° y 11°)</p>
+                <p><strong>Descripción:</strong> Capacitación en ensamble, mantenimiento preventivo y correctivo de computadores, diagnóstico de fallas, actualización de hardware y software. Aprenden a reparar y mantener equipos tecnológicos.</p>
+                <p><strong>Campo laboral:</strong> Centros de servicio técnico, empresas de tecnología, soporte técnico independiente.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Electricidad y Domiciliaria</h3>
+                <p><strong>Duración:</strong> 2 años (10° y 11°)</p>
+                <p><strong>Descripción:</strong> Formación en instalaciones eléctricas residenciales e industriales, sistemas de iluminación, circuitos eléctricos, normatividad RETIE y seguridad industrial. Desarrollo de proyectos eléctricos domiciliarios.</p>
+                <p><strong>Campo laboral:</strong> Empresas de construcción, proyectos de infraestructura, instalaciones residenciales y comerciales.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Programación de Software</h3>
+                <p><strong>Duración:</strong> 2 años (10° y 11°)</p>
+                <p><strong>Descripción:</strong> Capacitación en desarrollo de aplicaciones web y móviles, lenguajes de programación (HTML, CSS, JavaScript, Python), bases de datos y metodologías ágiles. Creación de soluciones tecnológicas innovadoras.</p>
+                <p><strong>Campo laboral:</strong> Empresas de desarrollo de software, startups tecnológicas, freelance, desarrollo independiente.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Redes y Datos</h3>
+                <p><strong>Duración:</strong> 2 años (10° y 11°)</p>
+                <p><strong>Descripción:</strong> Formación en diseño e implementación de redes informáticas, cableado estructurado, configuración de equipos de red (routers, switches), seguridad de redes y administración de servidores.</p>
+                <p><strong>Campo laboral:</strong> Empresas de telecomunicaciones, departamentos de TI, proveedores de servicios de internet, consultoría en redes.</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 1.5rem;">
+                Todos nuestros programas técnicos están certificados por el SENA y preparan a los estudiantes para continuar sus estudios superiores o insertarse en el mercado laboral con competencias técnicas sólidas.
+            </p>
+            <a class="nav-link btn-primary" data-section="matricula" style="cursor: pointer;">Solicitar Información</a>
         </div>
     </section>
 
@@ -1287,6 +1369,7 @@
                     <li><a class="nav-link" data-section="nosotros">Nosotros</a></li>
                     <li><a class="nav-link" data-section="noticias">Noticias</a></li>
                     <li><a class="nav-link" data-section="matricula">Matrícula</a></li>
+                    <li><a class="nav-link" data-section="mediaTecnica">Media Técnica</a></li>
                     <li><a class="nav-link" data-section="contacto">Contacto</a></li>
                 </ul>
             </div>
@@ -1333,7 +1416,10 @@
             document.getElementById(sectionId).classList.add('active');
             document.querySelector(`[data-section="${sectionId}"]`).classList.add('active');
             
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Scroll to below the hero slider
+            const heroSlider = document.querySelector('.hero-slider');
+            const heroHeight = heroSlider.offsetHeight + heroSlider.offsetTop;
+            window.scrollTo({ top: heroHeight, behavior: 'smooth' });
             
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
